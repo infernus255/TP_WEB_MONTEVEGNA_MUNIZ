@@ -8,5 +8,6 @@ namespace NEGOCIO
 {
     public class Class1
     {
+
     }
 }
