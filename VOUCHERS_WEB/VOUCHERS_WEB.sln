@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.489
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FRONTEND_WEB_FORM", "FRONTEND_WEB_FORM\FRONTEND_WEB_FORM.csproj", "{589411F6-0E0B-40A2-AD23-A9FF3C7FDA10}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{589411F6-0E0B-40A2-AD23-A9FF3C7FDA10}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{589411F6-0E0B-40A2-AD23-A9FF3C7FDA10}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{589411F6-0E0B-40A2-AD23-A9FF3C7FDA10}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{589411F6-0E0B-40A2-AD23-A9FF3C7FDA10}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A8ADD902-786C-4DB3-AF66-15869E82B996}
+	EndGlobalSection
+EndGlobal
