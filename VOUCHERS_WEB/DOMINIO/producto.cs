@@ -10,6 +10,14 @@ namespace DOMINIO
     {
         private int id;
         private string nombre;
+        private string url;
+
+        public string Url
+        {
+            get { return url; }
+            set { url = value; }
+        }
+
 
 
         public string Nombre

@@ -1,0 +1,120 @@
+﻿body {
+}
+
+body {
+    background-color: #252424;
+}
+
+.d-flex {
+    display: flex;
+}
+
+.justify-content-center {
+    justify-content: center;
+}
+
+.flex-direction-column {
+    flex-direction: column;
+}
+
+.header-container {
+    margin-top: 65px;
+    margin-left: 68px;
+}
+
+.header {
+    font-family: 'Open Sans';
+    font-size: 30px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.37;
+    letter-spacing: normal;
+    text-align: left;
+    color: #839399;
+}
+
+.sub-header {
+    margin-top: 7px;
+    font-family: 'Open Sans';
+    font-size: 20px;
+    font-weight: 300;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.35;
+    letter-spacing: normal;
+    text-align: left;
+    color: #839399;
+}
+
+.user-logo {
+    font-size: 100px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.04;
+    letter-spacing: normal;
+    text-align: left;
+    color: #0092d2;
+}
+
+
+
+.input-container {
+    margin-top: 72px;
+}
+
+.input-text {
+    font-family: 'Open Sans';
+    font-size: 15px;
+    font-weight: 300;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.36;
+    letter-spacing: normal;
+    text-align: left;
+    color: #839399;
+    background-color: #252424;
+    border: solid;
+    border-color: dimgrey
+}
+
+.code {
+    margin: 57.5px 0 57.5px 0;
+}
+
+.square-end {
+    width: 40px;
+    height: 40px;
+    background-color: #839399;
+    display: flex;
+    margin-left: -1px;
+    border-radius: 0 10px 10px 0;
+}
+
+.square-end-inner {
+    display: flex;
+    align-items: center;
+    padding: .5rem .7rem;
+    margin-bottom: 0;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #f1f1f1;
+    text-align: center;
+}
+
+.auth-btn {
+    border: none;
+    padding: 13px 62px 13px 62px;
+    background-color: #0092d2;
+    font-family: 'Open Sans';
+    font-size: 15px;
+    font-weight: 300;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.36;
+    letter-spacing: normal;
+    text-align: left;
+    color: #ffffff;
+}

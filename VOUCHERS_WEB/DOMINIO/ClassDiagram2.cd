@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="DOMINIO.cliente">
+    <Position X="2.25" Y="1.75" Width="1.5" />
+    <AssociationLine Name="ListaCompras" Type="DOMINIO.compra" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="3.75" Y="3.506" />
+        <Point X="4.125" Y="3.506" />
+        <Point X="4.125" Y="1.784" />
+        <Point X="5.75" Y="1.784" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAECKAABAiQAAACkAAAAgAAAAAAAAAAgAAAAAgAAAgo=</HashCode>
+      <FileName>cliente.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="ListaCompras" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="DOMINIO.compra">
+    <Position X="5.75" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAASAAAAEQBAAAEAQAAAAAAAAAAAAAAAAAAAAAAAAgA=</HashCode>
+      <FileName>compra.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Producto" />
+      <Property Name="Voucher" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="DOMINIO.noCliente">
+    <Position X="8.5" Y="1.75" Width="1.5" />
+    <AssociationLine Name="Compra" Type="DOMINIO.compra" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="8.5" Y="2.406" />
+        <Point X="8.125" Y="2.406" />
+        <Point X="8.125" Y="2.043" />
+        <Point X="7.25" Y="2.043" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAEAAAAAgA=</HashCode>
+      <FileName>noCliente.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Compra" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="DOMINIO.premio">
+    <Position X="7.25" Y="4.75" Width="1.5" />
+    <AssociationLine Name="Voucher" Type="DOMINIO.voucher" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="8.281" Y="4.75" />
+        <Point X="8.281" Y="4.375" />
+        <Point X="14.188" Y="4.375" />
+        <Point X="14.188" Y="4.045" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAASAAAAEABAAAAAQAAAAAAAAAAAAAAgAAAAIAAAAgA=</HashCode>
+      <FileName>premio.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Voucher" />
+      <Property Name="Producto" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="DOMINIO.producto">
+    <Position X="4.5" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAACAAAAAgAAAAAAIAAAACAAAAAAAAgA=</HashCode>
+      <FileName>producto.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DOMINIO.sorteo">
+    <Position X="10" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAACAAAAAgAAAAAAAAgAAACIIAAAgCgA=</HashCode>
+      <FileName>sorteo.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="ListaPremios" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="DOMINIO.voucher">
+    <Position X="13.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAQAAAAEAAAAEAAAABAAAAAAgAAAAIAAAAgA=</HashCode>
+      <FileName>voucher.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

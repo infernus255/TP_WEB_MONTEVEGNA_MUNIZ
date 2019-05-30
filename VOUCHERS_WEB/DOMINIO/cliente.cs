@@ -8,7 +8,7 @@ namespace DOMINIO
 {
     public class cliente
     {
-        private int id;
+        
         private List<compra> listaCompras;
         private string nombre;
         private string apellido;
@@ -16,12 +16,20 @@ namespace DOMINIO
         private string email;
         private int nroCalle;
         private string calle;
-        private string ciudad;
+        private string localidad;
+        private int telefono;
 
-        public string Ciudad
+        public int Telefono
         {
-            get { return ciudad; }
-            set { ciudad = value; }
+            get { return telefono; }
+            set { telefono = value; }
+        }
+
+
+        public string Localidad
+        {
+            get { return localidad; }
+            set { localidad = value; }
         }
 
 
@@ -74,12 +82,22 @@ namespace DOMINIO
         }
 
 
-        public int Id
+        public cliente()
         {
-            get { return id; }
-            set { id = value; }
+
         }
 
+        public cliente(int dni, string nombre, string apellido, int nroCalle, string calle, string localidad,int telefono, string email)
+        {
+            Dni = dni;
+            Nombre = nombre;
+            Apellido = apellido;
+            NroCalle = nroCalle;
+            Calle = calle;
+            Localidad = localidad;
+            Telefono = telefono;
+            Email = email;
+        }
 
     }
 }
