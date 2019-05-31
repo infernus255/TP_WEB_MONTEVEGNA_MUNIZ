@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="clienteNegocio.cs" />
+    <Compile Include="funcionesAuxNegocio.cs" />
     <Compile Include="productoNegocio.cs" />
     <Compile Include="voucherNegocio.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

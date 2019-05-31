@@ -184,22 +184,22 @@ namespace FRONTEND_WEB_FORM {
         protected global::System.Web.UI.HtmlControls.HtmlInputText txttelefono;
         
         /// <summary>
-        /// Control Button5.
+        /// Control btnAceptarCliente.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputButton Button5;
+        protected global::System.Web.UI.HtmlControls.HtmlInputButton btnAceptarCliente;
         
         /// <summary>
-        /// Control Button6.
+        /// Control btnCancelarCliente.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputButton Button6;
+        protected global::System.Web.UI.HtmlControls.HtmlInputButton btnCancelarCliente;
         
         /// <summary>
         /// Control lblfail.
@@ -229,22 +229,22 @@ namespace FRONTEND_WEB_FORM {
         protected global::System.Web.UI.HtmlControls.HtmlInputText txtdni;
         
         /// <summary>
-        /// Control Button7.
+        /// Control btnAceptarDni.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputButton Button7;
+        protected global::System.Web.UI.HtmlControls.HtmlInputButton btnAceptarDni;
         
         /// <summary>
-        /// Control Button8.
+        /// Control btnCancelarDni.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputButton Button8;
+        protected global::System.Web.UI.HtmlControls.HtmlInputButton btnCancelarDni;
         
         /// <summary>
         /// Control lblerrordni.

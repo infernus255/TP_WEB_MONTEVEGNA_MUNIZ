@@ -12,12 +12,15 @@ namespace NEGOCIO
     public class clienteNegocio
     {
 
-        public void cargarCliente(int dni,string nombre, string apellido,int nroCalle,string calle,string localidad,int telefono,string email)
+        public void cargarCliente(int dni,string nombre, string apellido,int nroCalle,string calle,int idLocalidad,int telefono,string email)
         {
             AccesoDatosManager accesoDatos = new AccesoDatosManager();
+            clienteNegocio clienteNegocio = new clienteNegocio();
 
             try
             {
+
+                
 
                 accesoDatos.setearSP("SP_CARGAR_CLIENTE");//SETEO EL SP
 
@@ -28,7 +31,7 @@ namespace NEGOCIO
                 accesoDatos.agregarParametroSP(VectorParam, 2, "@APELLIDO", System.Data.SqlDbType.VarChar, apellido); // AGREGO UN PARAMETRO AL VECTOR EN ESA POSICION
                 accesoDatos.agregarParametroSP(VectorParam, 3, "@NROCALLE", System.Data.SqlDbType.SmallInt, nroCalle); // AGREGO UN PARAMETRO AL VECTOR EN ESA POSICION
                 accesoDatos.agregarParametroSP(VectorParam, 4, "@CALLE", System.Data.SqlDbType.VarChar, calle); // AGREGO UN PARAMETRO AL VECTOR EN ESA POSICION
-                accesoDatos.agregarParametroSP(VectorParam, 5, "@LOCALIDAD", System.Data.SqlDbType.Int, localidad); // AGREGO UN PARAMETRO AL VECTOR EN ESA POSICION
+                accesoDatos.agregarParametroSP(VectorParam, 5, "@IDLOCALIDAD", System.Data.SqlDbType.Int, idLocalidad); // AGREGO UN PARAMETRO AL VECTOR EN ESA POSICION
                 accesoDatos.agregarParametroSP(VectorParam, 6, "@TELEFONO", System.Data.SqlDbType.Int, telefono); // AGREGO UN PARAMETRO AL VECTOR EN ESA POSICION
                 accesoDatos.agregarParametroSP(VectorParam, 7, "@EMAIL", System.Data.SqlDbType.VarChar, email); // AGREGO UN PARAMETRO AL VECTOR EN ESA POSICION
                 
@@ -116,7 +119,7 @@ namespace NEGOCIO
 
                 while (accesoDatos.Lector.Read())
                 {
-                    string localidad=buscarlocalidadXCodPostal(accesoDatos.Lector.GetString(5));
+                    string localidad=buscarLocalidadXId(accesoDatos.Lector.GetInt32(5));
                     c = new cliente(accesoDatos.Lector.GetInt32(0),accesoDatos.Lector.GetString(1),accesoDatos.Lector.GetString(2),accesoDatos.Lector.GetInt16(3),accesoDatos.Lector.GetString(4),localidad,accesoDatos.Lector.GetInt32(6),accesoDatos.Lector.GetString(7));
 
                 }
@@ -134,7 +137,7 @@ namespace NEGOCIO
             }
         }
 
-        public void modificarCliente(int dni, string nombre, string apellido, int nroCalle, string calle, string localidad, int telefono, string email)
+        public void modificarCliente(int dni, string nombre, string apellido, int nroCalle, string calle, int idLocalidad, int telefono, string email)
         {
             AccesoDatosManager accesoDatos = new AccesoDatosManager();
 
@@ -150,7 +153,7 @@ namespace NEGOCIO
                 accesoDatos.agregarParametroSP(VectorParam, 2, "@APELLIDO", System.Data.SqlDbType.VarChar, apellido); // AGREGO UN PARAMETRO AL VECTOR EN ESA POSICION
                 accesoDatos.agregarParametroSP(VectorParam, 3, "@NROCALLE", System.Data.SqlDbType.SmallInt, nroCalle); // AGREGO UN PARAMETRO AL VECTOR EN ESA POSICION
                 accesoDatos.agregarParametroSP(VectorParam, 4, "@CALLE", System.Data.SqlDbType.VarChar, calle); // AGREGO UN PARAMETRO AL VECTOR EN ESA POSICION
-                accesoDatos.agregarParametroSP(VectorParam, 5, "@LOCALIDAD", System.Data.SqlDbType.Int, localidad); // AGREGO UN PARAMETRO AL VECTOR EN ESA POSICION
+                accesoDatos.agregarParametroSP(VectorParam, 5, "@IDLOCALIDAD", System.Data.SqlDbType.Int, idLocalidad); // AGREGO UN PARAMETRO AL VECTOR EN ESA POSICION
                 accesoDatos.agregarParametroSP(VectorParam, 6, "@TELEFONO", System.Data.SqlDbType.Int, telefono); // AGREGO UN PARAMETRO AL VECTOR EN ESA POSICION
                 accesoDatos.agregarParametroSP(VectorParam, 7, "@EMAIL", System.Data.SqlDbType.VarChar, email); // AGREGO UN PARAMETRO AL VECTOR EN ESA POSICION
 
@@ -172,7 +175,7 @@ namespace NEGOCIO
             }
         }
 
-        public string buscarlocalidadXCodPostal(string localidad)
+        public string buscarLocalidadXId(int idLocalidad)
         {
             AccesoDatosManager accesoDatos = new AccesoDatosManager();
             string result = "NO EXISTE O FALLO";
@@ -180,11 +183,11 @@ namespace NEGOCIO
             try
             {
 
-                accesoDatos.setearSP("SP_BUSCAR_CLIENTE_X_DNI");//SETEO EL SP
+                accesoDatos.setearSP("SP_BUSCAR_LOC_X_ID");//SETEO EL SP
 
                 SqlParameter[] VectorParam = new SqlParameter[1]; //no funciona con lista, aqui se debe agregar la cantidad de parametros totales
 
-                accesoDatos.agregarParametroSP(VectorParam, 0, "@LOCALIDAD", System.Data.SqlDbType.Int, localidad); // AGREGO UN PARAMETRO AL VECTOR EN ESA POSICION               
+                accesoDatos.agregarParametroSP(VectorParam, 0, "@ID", System.Data.SqlDbType.Int, idLocalidad); // AGREGO UN PARAMETRO AL VECTOR EN ESA POSICION               
 
 
                 accesoDatos.Comando.Parameters.AddRange(VectorParam);//AGREGO LA MATRIZ DE PARAMETROS A LOS PARAMETROS DEL COMANDO
@@ -210,6 +213,78 @@ namespace NEGOCIO
                 accesoDatos.cerrarConexion();//CIERRO CONEXION
             }
 
+        }
+
+
+        //BUSCAR EL ID DE LA LOCALIDAD, si no encuentra devuelve -1
+        public int buscarIdXLocalidad(string Localidad)
+        {
+            AccesoDatosManager accesoDatos = new AccesoDatosManager();
+            int result =-1;
+
+            try
+            {
+
+                accesoDatos.setearSP("SP_BUSCAR_ID_X_LOC");//SETEO EL SP
+
+                SqlParameter[] VectorParam = new SqlParameter[1]; //no funciona con lista, aqui se debe agregar la cantidad de parametros totales
+
+                accesoDatos.agregarParametroSP(VectorParam, 0, "@LOCALIDAD", System.Data.SqlDbType.VarChar, Localidad); // AGREGO UN PARAMETRO AL VECTOR EN ESA POSICION               
+
+
+                accesoDatos.Comando.Parameters.AddRange(VectorParam);//AGREGO LA MATRIZ DE PARAMETROS A LOS PARAMETROS DEL COMANDO
+
+                accesoDatos.abrirConexion(); // abro conexion   
+                accesoDatos.ejecutarConsulta();//EJECUTO EL SP
+
+
+                while (accesoDatos.Lector.Read())
+                {
+                    result = accesoDatos.Lector.GetInt32(0);
+                }
+
+                return result;
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                accesoDatos.cerrarConexion();//CIERRO CONEXION
+            }
+
+        }
+
+        public void cargarLocalidad(string localidad)
+        {
+            AccesoDatosManager accesoDatos = new AccesoDatosManager();
+
+            try
+            {              
+                accesoDatos.setearSP("SP_AGREGAR_LOCALIDAD");//SETEO EL SP
+
+                SqlParameter[] VectorParam = new SqlParameter[1]; //no funciona con lista, aqui se debe agregar la cantidad de parametros totales
+
+                accesoDatos.agregarParametroSP(VectorParam, 0, "@LOCALIDAD", System.Data.SqlDbType.VarChar, localidad); // AGREGO UN PARAMETRO AL VECTOR EN ESA POSICION               
+
+
+                accesoDatos.Comando.Parameters.AddRange(VectorParam);//AGREGO LA MATRIZ DE PARAMETROS A LOS PARAMETROS DEL COMANDO
+
+                accesoDatos.abrirConexion(); // abro conexion   
+                accesoDatos.ejecutarConsulta();//EJECUTO EL SP
+
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                accesoDatos.cerrarConexion();
+            }
         }
     }
 }

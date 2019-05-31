@@ -22,7 +22,7 @@ namespace NEGOCIO
 
                 accesoDatos.setearSP("SP_LISTAR_PROD_WIN_X_VOUCHER");//SETEO EL SP
 
-                SqlParameter[] VectorParam = new SqlParameter[2]; //no funciona con lista, aqui se debe agregar la cantidad de parametros totales
+                SqlParameter[] VectorParam = new SqlParameter[1]; //no funciona con lista, aqui se debe agregar la cantidad de parametros totales
 
                 accesoDatos.agregarParametroSP(VectorParam, 0, "@ID_VOUCHER", System.Data.SqlDbType.VarChar, id); // AGREGO UN PARAMETRO AL VECTOR EN ESA POSICION              
 
@@ -36,7 +36,7 @@ namespace NEGOCIO
                     producto producto = new producto();
                     producto.Id =accesoDatos.Lector.GetInt32(0);
                     producto.Nombre =accesoDatos.Lector.GetString(1);
-                    producto.Url =accesoDatos.Lector.GetString(2);
+                    //producto.Url =accesoDatos.Lector.GetString(2);
 
                     ListProductos.Add(producto);
                 }

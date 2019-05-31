@@ -20,7 +20,7 @@
                 
                 <div class="input-container d-flex flex-direction-column">
                     <div class="d-flex justify-content-center">
-                        <input type="text" class="input-text" placeholder="Inserte Codigo Promocional" runat="server" id="txtvoucher"/>
+                        <input type="text" class="input-text" placeholder="Inserte Codigo Promocional" runat="server" id="txtvoucher" maxlength="8" />
                         
                     </div>
                    

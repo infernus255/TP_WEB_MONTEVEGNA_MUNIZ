@@ -16,7 +16,7 @@ namespace DOMINIO
 
         public int IdProdSelec
         {
-            get { return idProdSelec; }
+            get { return idProdSelec ; }
             set { idProdSelec = value; }
         }
 

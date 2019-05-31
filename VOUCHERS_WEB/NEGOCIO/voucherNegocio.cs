@@ -12,7 +12,8 @@ namespace NEGOCIO
     public class voucherNegocio
     {
         //BUSCA EL VOUCHER EN LA DB, SI NO ES VALIDO DEVUELVE UN ID="INVALIDO"
-        //si el id es igual al de db, esta activo,fue comprado, no fue utilizado antes y esta en el sorteo actual
+        //si el id es igual al de db, esta activo,fue comprado, no fue utilizado antes y esta en el sorteo actual, EN RESUMEN, VERIFICA SI ES VALIDO 
+        //PERO NO SI TIENE PREMIO
         public voucher buscarXID(string id)
         {
             AccesoDatosManager accesoDatos = new AccesoDatosManager();
@@ -35,7 +36,7 @@ namespace NEGOCIO
 
                 while (accesoDatos.Lector.Read())
                 {
-                    voucher voucherNew = new voucher(accesoDatos.Lector.GetString(0), accesoDatos.Lector.GetDateTime(1), accesoDatos.Lector.GetBoolean(2), accesoDatos.Lector.GetInt32(3),accesoDatos.Lector.GetInt32(4));
+                    voucher voucherNew = new voucher(accesoDatos.Lector.GetString(0), accesoDatos.Lector.GetDateTime(1), accesoDatos.Lector.GetBoolean(2), accesoDatos.Lector.GetInt32(3),0);
                     voucher = voucherNew;
                 }
 
@@ -62,41 +63,40 @@ namespace NEGOCIO
 
 
         //VERIFICA SI EL VOUCHER EXISTE EN LA DB CON CIERTAS CONDICIONES
-        //si el id es igual al de db, esta activo,fue comprado, no fue utilizado antes y esta en el sorteo actual
-        public bool existInDB(string id)
+        //si el id es igual al de db, esta activo,fue comprado, no fue utilizado antes y esta en el sorteo actual Y TIENE PREMIOS
+        public bool isWin(string id)
         {
             AccesoDatosManager accesoDatos = new AccesoDatosManager();
-            voucher voucher = new voucher("INVALIDO", DateTime.Parse(""), false, 0, 0);
+            voucher voucher = this.buscarXID(id);
+            bool result = false;
 
             try
             {
 
-                accesoDatos.setearSP("SP_BUSCAR_VOUCHER_X_ID");//SETEO EL SP
-
-                SqlParameter[] VectorParam = new SqlParameter[1]; //no funciona con lista, aqui se debe agregar la cantidad de parametros totales
-
-                accesoDatos.agregarParametroSP(VectorParam, 0, "@ID_VOUCHER", System.Data.SqlDbType.VarChar, id); // AGREGO UN PARAMETRO AL VECTOR EN ESA POSICION
-
-
-                accesoDatos.Comando.Parameters.AddRange(VectorParam);//AGREGO LA MATRIZ DE PARAMETROS A LOS PARAMETROS DEL COMANDO
-
-                accesoDatos.abrirConexion(); // abro conexion   
-                accesoDatos.ejecutarConsulta();//EJECUTO EL SP
-
-                while (accesoDatos.Lector.Read())
+                //si lo encuentra revisa si tiene premios
+                if (voucher.Id==id)
                 {
-                    voucher voucherNew = new voucher(accesoDatos.Lector.GetString(0), accesoDatos.Lector.GetDateTime(1), accesoDatos.Lector.GetBoolean(2), accesoDatos.Lector.GetInt32(3), accesoDatos.Lector.GetInt32(4));
-                    voucher = voucherNew;
+
+                    accesoDatos.setearSP("SP_IS_WIN");//SETEO EL SP
+
+                    SqlParameter[] VectorParam = new SqlParameter[1]; //no funciona con lista, aqui se debe agregar la cantidad de parametros totales
+
+                    accesoDatos.agregarParametroSP(VectorParam, 0, "@ID_VOUCHER", System.Data.SqlDbType.VarChar, voucher.Id); // AGREGO UN PARAMETRO AL VECTOR EN ESA POSICION
+
+
+                    accesoDatos.Comando.Parameters.AddRange(VectorParam);//AGREGO LA MATRIZ DE PARAMETROS A LOS PARAMETROS DEL COMANDO
+
+                    accesoDatos.abrirConexion(); // abro conexion   
+                    accesoDatos.ejecutarConsulta();//EJECUTO EL SP
+
+                    while (accesoDatos.Lector.Read())
+                    {
+                        result = accesoDatos.Lector.GetBoolean(0);                        
+                    }
+
                 }
 
-                if (voucher.Id == id && voucher.Activo == true)
-                {
-                    return true;
-                }
-                else
-                {                    
-                    return false;
-                }
+                return result;
 
             }
             catch (Exception ex)

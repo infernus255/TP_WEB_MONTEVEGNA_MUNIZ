@@ -101,36 +101,36 @@
                 
                 <div class="input-container d-flex flex-direction-column">
                     <div class="d-flex justify-content-center">
-                        <input type="text" class="input-text mb-3" placeholder="Nombre" runat="server" id="txtnombre"/>
+                        <input type="text" class="input-text mb-3" style="width:230px" placeholder="Nombre" runat="server" id="txtnombre" maxlength="30"/>
                         
                     </div>
                      <div class="d-flex justify-content-center">
-                        <input type="text" class="input-text mb-3" placeholder="Apellido" runat="server" id="txtapellido"/>
+                        <input type="text" class="input-text mb-3" style="width:230px" placeholder="Apellido" runat="server" id="txtapellido" maxlength="30"/>
                         
                     </div>
                      <div class="d-flex justify-content-center">
-                        <input type="text" class="input-text mb-3" placeholder="Direccion (Calle)" runat="server" id="txtdireccion"/>
+                        <input type="text" class="input-text mb-3" style="width:230px" placeholder="Direccion (Calle)" runat="server" id="txtdireccion" maxlength="30"/>
                         
                     </div>
                      <div class="d-flex justify-content-center">
-                        <input type="text" class="input-text mb-3" placeholder="Direccion (Numero)" runat="server" id="txtnumero"/>
+                        <input type="text" class="input-text mb-3"  style="width:230px" placeholder="Direccion (Numero)" runat="server" id="txtnumero"/>
                         
                     </div>
                      <div class="d-flex justify-content-center">
-                        <input type="text" class="input-text mb-3" placeholder="Localidad" runat="server" id="txtlocalidad"/>                       
+                        <input type="text" class="input-text mb-3" style="width:230px" placeholder="Localidad" runat="server" id="txtlocalidad" maxlength="30"/>                       
                     </div>
                      <div class="d-flex justify-content-center">
-                        <input type="text" class="input-text mb-3" placeholder="Email" runat="server" id="txtemail"/>
+                        <input type="text" class="input-text mb-3" style="width:230px" placeholder="Email" runat="server" id="txtemail" maxlength="30"/>
                         
                     </div>
                      <div class="d-flex justify-content-center">
-                        <input type="text" class="input-text mb-3" placeholder="Telefono" runat="server" id="txttelefono"/>
+                        <input type="text" class="input-text mb-3" style="width:230px" placeholder="Telefono" runat="server" id="txttelefono"/>
                         
                     </div>
                    
                     <div class="d-flex justify-content-center">
-                        <input type="button" class="auth-btn mt-4 mr-5" value="Aceptar" runat="server" id="Button5" onserverclick="btnauthdni_ServerClick"/>
-                        <input type="button" class="auth-btn mt-4 ml-5" value="Cancelar" runat="server" id="Button6" onserverclick="btnCancel_ServerClick"/>
+                        <input type="button" class="auth-btn mt-4 mr-5" value="Aceptar" runat="server" id="btnAceptarCliente" onserverclick="btnAceptarCliente_ServerClick"/>
+                        <input type="button" class="auth-btn mt-4 ml-5" value="Cancelar" runat="server" id="btnCancelarCliente" onserverclick="btnCancelCliente_ServerClick"/>
                     </div>
 
                       <div class="d-flex justify-content-center">
@@ -161,8 +161,8 @@
                    
                    
                     <div class="d-flex justify-content-center">
-                        <input type="button" class="auth-btn mt-4 mr-5" value="Aceptar" runat="server" id="Button7" onserverclick="btnLoad_ServerClick"/>
-                        <input type="button" class="auth-btn mt-4 ml-5" value="Cancelar" runat="server" id="Button8" onserverclick="btnCancel_ServerClick"/>
+                        <input type="button" class="auth-btn mt-4 mr-5" value="Aceptar" runat="server" id="btnAceptarDni" onserverclick="btnAceptarDni_ServerClick"/>
+                        <input type="button" class="auth-btn mt-4 ml-5" value="Cancelar" runat="server" id="btnCancelarDni" onserverclick="btnCancelDni_ServerClick"/>
                     </div>
                       <div class="d-flex justify-content-center">
                         <asp:label class="sub-header" runat="server" Visible="false" ID="lblerrordni"> DNI INVALIDO, VERIFIQUE ANTES DE CONTINUAR </asp:label>

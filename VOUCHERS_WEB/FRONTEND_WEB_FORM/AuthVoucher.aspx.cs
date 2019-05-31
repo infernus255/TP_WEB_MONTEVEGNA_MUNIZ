@@ -11,27 +11,52 @@ namespace FRONTEND_WEB_FORM
 {
     public partial class WebForm1 : System.Web.UI.Page
     {
+
+        //FALTA VALIDAR QUE LAS LETRAS SEAN SIEMPRE MAYUSCULAS
+
+
+
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            
         }
+
 
         protected void btnAuth_ServerClick(object sender, EventArgs e)
         {
-            Session["voucher"] = txtvoucher.Value.ToString();
-
-
-
-            NEGOCIO.voucherNegocio auth = new NEGOCIO.voucherNegocio();
-            if (auth.buscarXID(txtvoucher.Value.ToString()).Id != "INVALIDO" )
-            {
-                Response.Redirect("PrizePage.aspx", true);
-            }
+            string codigo = txtvoucher.Value.ToString();
+            codigo=codigo.ToUpper();
             
+            //si es de 8 digitos
+            if(codigo.Length==8)
+            {
+
+                
+
+                voucherNegocio voucherNegocio = new voucherNegocio();
+
+                //si es el ganador
+                if (voucherNegocio.isWin(codigo) == true)
+                {
+                    Session["codigo1"] = codigo;
+                    Response.Redirect("PrizePage.aspx", true);
+                }
+
+                else
+                {
+                    lblfail.Visible = true;
+                }
+
+            }
+
             else
             {
                 lblfail.Visible = true;
             }
+
+
+
+
         }
     }
 }
