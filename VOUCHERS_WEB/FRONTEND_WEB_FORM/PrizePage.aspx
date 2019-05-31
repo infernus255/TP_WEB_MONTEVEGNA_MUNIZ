@@ -65,25 +65,26 @@
 
                 
                        
-                        <input type="button" class="auth-btn mt-4 mr-3" value="Elegir" runat="server" id="btnAuth" onserverclick="btnAuth_ServerClick"/>
+                        <input type="button"  class="auth-btn mt-4 mr-3" value="Elegir" runat="server" id="btnmayo" onserverclick="btnAuth1_ServerClick"/>
                     
                              
                       
-                        <input type="button" class="auth-btn mt-4 ml-2 mr-3" value="Elegir" runat="server" id="Button1" onserverclick="btnAuth_ServerClick"/>
+                        <input type="button" class="auth-btn mt-4 ml-2 mr-3" value="Elegir" runat="server" id="btnbarba" onserverclick="btnAuth2_ServerClick"/>
                    
                              
                        
-                        <input type="button" class="auth-btn mt-4 ml-2 mr-3" value="Elegir" runat="server" id="Button2" onserverclick="btnAuth_ServerClick"/>
+                        <input type="button" class="auth-btn mt-4 ml-2 mr-3" value="Elegir" runat="server" id="btnket" onserverclick="btnAuth3_ServerClick"/>
 
 
 
-                <input type="button" class="auth-btn mt-4 ml-2 mr-2" value="Elegir" runat="server" id="Button3" onserverclick="btnAuth_ServerClick"/>
+                <input type="button" class="auth-btn mt-4 ml-2 mr-2" value="Elegir" runat="server" id="btnsalsa" onserverclick="btnAuth4_ServerClick"/>
 
 
 
-                <input type="button" class="auth-btn mt-4 ml-3" value="Elegir" runat="server" id="Button4" onserverclick="btnAuth_ServerClick"/>
+                <input type="button" class="auth-btn mt-4 ml-3" value="Elegir" runat="server" id="btnmozta" onserverclick="btnAuth5_ServerClick"/>
               
-                    
+                   
+
 
             </div>
          
@@ -100,39 +101,89 @@
                 
                 <div class="input-container d-flex flex-direction-column">
                     <div class="d-flex justify-content-center">
-                        <input type="text" class="input-text mb-3" placeholder="Nombre" runat="server" id="user"/>
+                        <input type="text" class="input-text mb-3" placeholder="Nombre" runat="server" id="txtnombre"/>
                         
                     </div>
                      <div class="d-flex justify-content-center">
-                        <input type="text" class="input-text mb-3" placeholder="Apellido" runat="server" id="Text1"/>
+                        <input type="text" class="input-text mb-3" placeholder="Apellido" runat="server" id="txtapellido"/>
                         
                     </div>
                      <div class="d-flex justify-content-center">
-                        <input type="text" class="input-text mb-3" placeholder="Direccion" runat="server" id="Text2"/>
+                        <input type="text" class="input-text mb-3" placeholder="Direccion (Calle)" runat="server" id="txtdireccion"/>
                         
                     </div>
                      <div class="d-flex justify-content-center">
-                        <input type="text" class="input-text mb-3" placeholder="Localidad" runat="server" id="Text5"/>                       
-                    </div>
-                     <div class="d-flex justify-content-center">
-                        <input type="text" class="input-text mb-3" placeholder="Email" runat="server" id="Text3"/>
+                        <input type="text" class="input-text mb-3" placeholder="Direccion (Numero)" runat="server" id="txtnumero"/>
                         
                     </div>
                      <div class="d-flex justify-content-center">
-                        <input type="text" class="input-text mb-3" placeholder="Telefono" runat="server" id="Text4"/>
+                        <input type="text" class="input-text mb-3" placeholder="Localidad" runat="server" id="txtlocalidad"/>                       
+                    </div>
+                     <div class="d-flex justify-content-center">
+                        <input type="text" class="input-text mb-3" placeholder="Email" runat="server" id="txtemail"/>
+                        
+                    </div>
+                     <div class="d-flex justify-content-center">
+                        <input type="text" class="input-text mb-3" placeholder="Telefono" runat="server" id="txttelefono"/>
                         
                     </div>
                    
                     <div class="d-flex justify-content-center">
-                        <input type="button" class="auth-btn mt-4 mr-5" value="Aceptar" runat="server" id="Button5" onserverclick="btnLoad_ServerClick"/>
+                        <input type="button" class="auth-btn mt-4 mr-5" value="Aceptar" runat="server" id="Button5" onserverclick="btnauthdni_ServerClick"/>
                         <input type="button" class="auth-btn mt-4 ml-5" value="Cancelar" runat="server" id="Button6" onserverclick="btnCancel_ServerClick"/>
                     </div>
 
+                      <div class="d-flex justify-content-center">
+                        <asp:label class="sub-header" runat="server" Visible="false" ID="lblfail"> DATOS INVALIDOS, VERIFIQUE LOS CAMPOS ANTES DE CONTINUAR </asp:label>
+                    </div>
                     
                 </div>
             </div>
         </div>
     </panel>
+
+
+
+
+         <panel id="pnldni" runat="server" visible="false">
+        <div class="header-container d-flex flex-direction-column">
+            <label class="header">Sorteo</label>
+            <label class="sub-header">Ingrese su DNI por favor</label>
+        </div>
+        <div class=" d-flex justify-content-center">
+            <div class="d-flex flex-direction-column">
+                
+                <div class="input-container d-flex flex-direction-column">
+                    <div class="d-flex justify-content-center">
+                        <input type="text" class="input-text mb-3" placeholder="DNI" runat="server" id="txtdni"/>
+                        
+                    </div>
+                   
+                   
+                    <div class="d-flex justify-content-center">
+                        <input type="button" class="auth-btn mt-4 mr-5" value="Aceptar" runat="server" id="Button7" onserverclick="btnLoad_ServerClick"/>
+                        <input type="button" class="auth-btn mt-4 ml-5" value="Cancelar" runat="server" id="Button8" onserverclick="btnCancel_ServerClick"/>
+                    </div>
+                      <div class="d-flex justify-content-center">
+                        <asp:label class="sub-header" runat="server" Visible="false" ID="lblerrordni"> DNI INVALIDO, VERIFIQUE ANTES DE CONTINUAR </asp:label>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </panel>
+
+
+        
+         <panel id="pnlend" runat="server" visible="false">
+        <div class="header-container d-flex flex-direction-column">
+            <label class="header">Muchas gracias por participar</label>
+            <label class="sub-header">En caso de haber ganado se le avisara por el mail registrado</label>
+        </div>
+        
+        </div>
+    </panel>
+
 
     </body>
 

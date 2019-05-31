@@ -16,7 +16,7 @@ namespace NEGOCIO
         public voucher buscarXID(string id)
         {
             AccesoDatosManager accesoDatos = new AccesoDatosManager();
-            voucher voucher=new voucher("INVALIDO",DateTime.Parse(""),false,0,0);
+            voucher voucher=new voucher("INVALIDO",DateTime.Now,false,0,0);
 
             try
             {

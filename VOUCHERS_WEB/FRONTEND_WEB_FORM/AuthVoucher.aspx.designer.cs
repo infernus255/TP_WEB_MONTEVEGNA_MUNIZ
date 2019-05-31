@@ -22,13 +22,22 @@ namespace FRONTEND_WEB_FORM {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl pnllogin;
         
         /// <summary>
-        /// Control user.
+        /// Control txtvoucher.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText user;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtvoucher;
+        
+        /// <summary>
+        /// Control lblfail.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblfail;
         
         /// <summary>
         /// Control btnAuth.

@@ -20,10 +20,15 @@
                 
                 <div class="input-container d-flex flex-direction-column">
                     <div class="d-flex justify-content-center">
-                        <input type="text" class="input-text" placeholder="Inserte Codigo Promocional" runat="server" id="user"/>
+                        <input type="text" class="input-text" placeholder="Inserte Codigo Promocional" runat="server" id="txtvoucher"/>
                         
                     </div>
                    
+                    
+                    <div class="d-flex justify-content-center">
+                        <asp:label class="sub-header" runat="server" Visible="false" ID="lblfail"> VOUCHER INVALIDO, INGRESE UN CODIGO PARTICIPANTE </asp:label>
+                    </div>
+
                     <div class="d-flex justify-content-center">
                         <input type="button" class="auth-btn mt-4" value="Verificar" runat="server" id="btnAuth" onserverclick="btnAuth_ServerClick"/>
                     </div>

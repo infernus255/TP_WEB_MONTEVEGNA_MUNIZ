@@ -10,7 +10,7 @@ namespace ACCESO_DATOS
     public class AccesoDatosManager
     {
         //public static string cadenaConexion = "data source=(local); initial catalog=VOUCHERS_WEB_DB; integrated security=sspi";
-        public static string cadenaConexion = "server=DESKTOP-D4I30IF\\SQLEXPRESS; database=VOUCHERS_WEB_DB; integrated security=true";
+        public static string cadenaConexion = "server=localhost\\SQLEXPRESS; database=VOUCHERS_WEB_DB; integrated security=SSPI";
         private SqlCommand comando;
         private SqlConnection conexion;
         private SqlDataReader lector;
