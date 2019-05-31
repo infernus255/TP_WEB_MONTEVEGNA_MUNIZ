@@ -113,7 +113,7 @@
                         
                     </div>
                      <div class="d-flex justify-content-center">
-                        <input type="text" class="input-text mb-3"  style="width:230px" placeholder="Direccion (Numero)" runat="server" id="txtnumero" maxlength="5"/>
+                        <input type="text" class="input-text mb-3"  style="width:230px" placeholder="Direccion (Numero)" runat="server" id="txtnumero" maxlength="4"/>
                         
                     </div>
                      <div class="d-flex justify-content-center">
@@ -124,7 +124,7 @@
                         
                     </div>
                      <div class="d-flex justify-content-center">
-                        <input type="text" class="input-text mb-3" style="width:230px" placeholder="Telefono" runat="server" id="txttelefono" maxlength="15"/>
+                        <input type="text" class="input-text mb-3" style="width:230px" placeholder="Telefono(SIN CODAREA)" runat="server" id="txttelefono" maxlength="8"/>
                         
                     </div>
                    
@@ -155,7 +155,7 @@
                 
                 <div class="input-container d-flex flex-direction-column">
                     <div class="d-flex justify-content-center">
-                        <input type="text" class="input-text mb-3" placeholder="DNI" runat="server" id="txtdni" maxlength="10"/>
+                        <input type="text" class="input-text mb-3" placeholder="DNI" runat="server" id="txtdni" maxlength="8"/>
                         
                     </div>
                    

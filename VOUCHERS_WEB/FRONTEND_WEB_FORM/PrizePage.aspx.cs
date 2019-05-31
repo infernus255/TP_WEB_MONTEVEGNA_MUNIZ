@@ -128,7 +128,7 @@ namespace FRONTEND_WEB_FORM
                         txtdireccion.Value = "Direccion(Calle)";
                         txtnumero.Value = "Direccion(Numero)";
                         txtlocalidad.Value = "Localidad";
-                        txttelefono.Value = "Telefono";
+                        txttelefono.Value = "Telefono(SIN CODAREA)";
                         txtemail.Value = "Mail";
 
                         Session["dni1"] = dni;
