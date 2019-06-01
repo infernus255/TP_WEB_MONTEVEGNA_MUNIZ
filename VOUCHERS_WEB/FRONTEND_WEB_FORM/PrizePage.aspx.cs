@@ -123,15 +123,8 @@ namespace FRONTEND_WEB_FORM
                     //si no esta registrado lo muestra vacio
                     else
                     {
-                        txtnombre.Value = "Nombre";
-                        txtapellido.Value = "Apellido";
-                        txtdireccion.Value = "Direccion(Calle)";
-                        txtnumero.Value = "Direccion(Numero)";
-                        txtlocalidad.Value = "Localidad";
-                        txttelefono.Value = "Telefono(SIN CODAREA)";
-                        txtemail.Value = "Mail";
-
                         Session["dni1"] = dni;
+
                     }
 
 
@@ -187,6 +180,10 @@ namespace FRONTEND_WEB_FORM
                 {
                     clienteNegocio1.modificarCliente(cliente1.Dni, cliente1.Nombre, cliente1.Apellido, cliente1.NroCalle, cliente1.Calle, clienteNegocio1.buscarIdXLocalidad(txtlocalidad.Value), cliente1.Telefono, cliente1.Email);
                     vNeg.bajaVoucher(v.Id, v.IdProdSelec);
+
+
+                    //no envia el email por problemas de autenticacion
+                    //aux.email_send("eros_gabriel@live.com.ar", "eroskpo10", cliente1.Email, "Concurso", "Gracias por participar", "");
 
                     pnlCarga.Visible = false;
                     pnlend.Visible = true;

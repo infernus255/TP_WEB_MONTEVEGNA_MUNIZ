@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Net;
+using System.Net.Mail;
 
 namespace NEGOCIO
 {
@@ -73,6 +75,33 @@ namespace NEGOCIO
             {
                 return false;
             }
+        }
+
+
+        public void email_send(string emailPropio,string contrasena,string emailAEnviar, string titulo, string mensaje, string urlArchivo)
+        {
+            MailMessage mail = new MailMessage();
+            SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
+            //SmtpClient SmtpServer = new SmtpClient("smtp.hotmail.com");
+            mail.From = new MailAddress(emailPropio);
+            mail.To.Add(emailAEnviar);
+            mail.Subject = titulo;
+            mail.Body = mensaje;
+
+            if(urlArchivo!="")
+            {
+                System.Net.Mail.Attachment attachment;
+                attachment = new System.Net.Mail.Attachment(urlArchivo);
+                mail.Attachments.Add(attachment);
+            }
+
+
+            SmtpServer.Port = 587;
+            SmtpServer.Credentials = new System.Net.NetworkCredential(emailPropio, contrasena);
+            SmtpServer.EnableSsl = true;
+
+            SmtpServer.Send(mail);
+
         }
 
     }
