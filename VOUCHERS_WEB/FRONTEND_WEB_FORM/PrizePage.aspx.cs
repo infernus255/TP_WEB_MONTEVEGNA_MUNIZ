@@ -6,6 +6,8 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using NEGOCIO;
 using DOMINIO;
+using System.Net.Mail;
+using System.Text;
 
 namespace FRONTEND_WEB_FORM
 {
@@ -183,7 +185,32 @@ namespace FRONTEND_WEB_FORM
 
 
                     //no envia el email por problemas de autenticacion
-                    //aux.email_send("eros_gabriel@live.com.ar", "eroskpo10", cliente1.Email, "Concurso", "Gracias por participar", "");
+
+                    //MailMessage mail = new MailMessage("eros_gabriel@live.com.ar", cliente1.Email.ToString());
+                    //SmtpClient client = new SmtpClient();
+                    //client.Port = 465;
+                    //client.DeliveryMethod = SmtpDeliveryMethod.Network;
+                    //client.UseDefaultCredentials = false;
+                    //client.Host = "	smtp.sendgrid.net";
+                    //mail.Subject = "Sorteo Vouchers";
+                    //mail.Body = "Gracias por participar, en caso de resultar ganador se le comunicara este mismo email";
+                    //client.Send(mail);
+
+                    SmtpClient client = new SmtpClient();
+                    client.Port = 587;
+                    client.Host = "smtp-mail.outlook.com";
+                    client.EnableSsl = true;
+                    client.Timeout = 0;
+                    client.DeliveryMethod = SmtpDeliveryMethod.Network;
+                    client.UseDefaultCredentials = false;
+                    client.Credentials = new System.Net.NetworkCredential("eros_gabriel@live.com.ar", "eroskpo10");
+
+                    MailMessage mm = new MailMessage("eros_gabriel@live.com.ar", cliente1.Email.ToString(), "Sorteo Vouchers", "Gracias por participar, en caso de resultar ganador se le comunicara este mismo email");
+                    mm.BodyEncoding = UTF8Encoding.UTF8;
+                    mm.DeliveryNotificationOptions = DeliveryNotificationOptions.OnFailure;
+
+                    client.Send(mm);
+                    // aux.email_send("eros_gabriel@live.com.ar", "eroskpo10", cliente1.Email, "Concurso", "Gracias por participar", "");
 
                     pnlCarga.Visible = false;
                     pnlend.Visible = true;
@@ -193,9 +220,25 @@ namespace FRONTEND_WEB_FORM
 
                     clienteNegocio1.cargarLocalidad(cliente1.Localidad);
                     clienteNegocio1.cargarCliente(cliente1.Dni, cliente1.Nombre, cliente1.Apellido, cliente1.NroCalle, cliente1.Calle, clienteNegocio1.buscarIdXLocalidad(txtlocalidad.Value), cliente1.Telefono, cliente1.Email);
-
-
                     vNeg.bajaVoucher(v.Id, v.IdProdSelec);
+
+                    SmtpClient client = new SmtpClient();
+                    client.Port = 587;
+                    client.Host = "smtp-mail.outlook.com";
+                    client.EnableSsl = true;
+                    client.Timeout = 0;
+                    client.DeliveryMethod = SmtpDeliveryMethod.Network;
+                    client.UseDefaultCredentials = false;
+                    client.Credentials = new System.Net.NetworkCredential("eros_gabriel@live.com.ar", "eroskpo10");
+
+                    MailMessage mm = new MailMessage("eros_gabriel@live.com.ar", cliente1.Email.ToString(), "Sorteo Vouchers", "Gracias por participar, en caso de resultar ganador se le comunicara este mismo email");
+                    mm.BodyEncoding = UTF8Encoding.UTF8;
+                    mm.DeliveryNotificationOptions = DeliveryNotificationOptions.OnFailure;
+
+                    client.Send(mm);
+
+
+                    
 
                     pnlCarga.Visible = false;
                     pnlend.Visible = true;
